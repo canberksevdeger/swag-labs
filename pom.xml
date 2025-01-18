@@ -126,7 +126,7 @@
                 <configuration>
                     <reportVersion>2.24.0</reportVersion>
                     <resultsDirectory>allure-results</resultsDirectory>
-                    <reportDirectory>target/allure-report</reportDirectory>
+                    <reportDirectory>${project.basedir}/target/allure-report</reportDirectory>
                 </configuration>
             </plugin>
             <plugin>
