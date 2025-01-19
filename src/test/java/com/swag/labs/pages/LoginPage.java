@@ -27,18 +27,18 @@ public class LoginPage extends BasePage{
     @FindBy(how = How.CSS, using="[data-test=error]")
     private WebElement errorH3;
 
-    public void enter_username(String username) {
+    public void enterUsername(String username) {
         userNameTextBox.sendKeys(username);
     }
 
-    public void enter_password(String password) {
+    public void enterPassword(String password) {
         passwordTextBox.sendKeys(password);
     }
 
-    public void click_loginButton() {
+    public void clickLoginButton() {
         loginButton.click();
     }
-    public String get_loginErrorMessage(){
+    public String getLoginErrorMessage(){
         return getTextOfElement(errorH3);
     }
 }

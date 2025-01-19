@@ -37,20 +37,20 @@ public class InventorySteps {
     @When("Sort products as {sortTypeOption}")
     public void sort_products(SortType option){
         inventoryPage = pageObjectManager.getInventoryPage();
-        inventoryPage.set_SortingOption(option);
+        inventoryPage.setSortingOption(option);
     }
 
     @When("I add products to cart with {string} price")
     public void i_add_products_to_cart_with_price(String price) {
         inventoryPage = pageObjectManager.getInventoryPage();
-        inventoryPage.click_addToCartButtons(
-                inventoryPage.get_addToCartButtonsForSamePricedItems(price)
+        inventoryPage.clickAddToCartButtons(
+                inventoryPage.getAddToCartButtonsForSamePricedItems(price)
         );
     }
 
     @Then("Check product sorting type for {sortTypeOption}")
     public void check_product_sorting_type(SortType option) {
         inventoryPage = pageObjectManager.getInventoryPage();
-        assertTrue(inventoryPage.check_PriceListSorted(inventoryPage.get_ItemsPriceList(), option));
+        assertTrue(inventoryPage.checkPriceListSorted(inventoryPage.getItemsPriceList(), option));
     }
 }

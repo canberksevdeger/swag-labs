@@ -64,36 +64,36 @@ public class CheckoutPage extends BasePage{
     @FindBy(how = How.CSS, using = "[data-test=total-label]")
     private WebElement totalLabel;
 
-    public void click_checkoutButton() {
+    public void clickCheckoutButton() {
         waitForClickableAndClick(checkoutButton);
     }
 
-    public void click_continueButton() {
+    public void clickContinueButton() {
         waitForClickableAndClick(continueButton);
     }
 
-    public void click_finishButton() {
+    public void clickFinishButton() {
         waitForClickableAndClick(finishButton);
     }
 
-    public void enter_firstName(String text) {
+    public void enterFirstName(String text) {
         firstNameField.sendKeys(text);
     }
 
-    public void enter_lastName(String text) {
+    public void enterLastName(String text) {
         lastNameField.sendKeys(text);
     }
 
-    public void enter_postcode(String text) {
+    public void enterPostcode(String text) {
         postcodeField.sendKeys(text);
     }
 
-    public Map<String, Object> get_checkoutSummary() {
+    public Map<String, Object> getCheckoutSummary() {
         List<Map<String, Object>> products = new ArrayList<>();
         for(WebElement item: inventoryItems) {
             Map<String, Object> product = Map.of(
-                    "product_name", get_childElement(item, inventoryItemName).getText(),
-                    "product_price", get_childElement(item, inventoryItemPrice).getText()
+                    "product_name", getChildElement(item, inventoryItemName).getText(),
+                    "product_price", getChildElement(item, inventoryItemPrice).getText()
             );
             products.add(product);
         }
@@ -108,7 +108,7 @@ public class CheckoutPage extends BasePage{
         );
     }
 
-    public Boolean check_orderCompleteMessage() {
+    public Boolean checkOrderCompleteMessage() {
         return waitForVisible(completeText);
     }
 }

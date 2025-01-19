@@ -4,7 +4,6 @@ import com.swag.labs.utils.WebDriverManager;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 import com.swag.labs.pages.InventoryPage;
 import com.swag.labs.pages.LoginPage;
 import com.swag.labs.utils.PageObjectManager;
@@ -31,24 +30,24 @@ public class LoginSteps {
     @When("{string} and {string} is entered")
     public void username_and_password_is_entered(String username, String password) {
         loginPage = pageObjectManager.getLoginPage();
-        loginPage.enter_username(username);
-        loginPage.enter_password(password);
+        loginPage.enterUsername(username);
+        loginPage.enterPassword(password);
     }
 
     @When("I click on login button")
     public void i_click_on_login_button(){
-        loginPage.click_loginButton();
+        loginPage.clickLoginButton();
     }
 
     @Then("I should see logout link in burger menu")
     public void i_should_see_logout_link_in_burger_menu() {
         inventoryPage = pageObjectManager.getInventoryPage();
-        inventoryPage.click_burgerMenu();
-        assertTrue(inventoryPage.check_visibilityOfLogoutSideBar());
+        inventoryPage.clickBurgerMenu();
+        assertTrue(inventoryPage.checkVisibilityOfLogoutSideBar());
     }
 
     @Then("I should see error {string}")
     public void i_should_see_error_message(String message) {
-        assertEquals(message, loginPage.get_loginErrorMessage());
+        assertEquals(message, loginPage.getLoginErrorMessage());
     }
 }

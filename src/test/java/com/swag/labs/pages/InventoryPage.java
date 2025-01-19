@@ -50,42 +50,42 @@ public class InventoryPage extends BasePage{
     private WebElement productSortContainer;
 
 
-    public void click_burgerMenu() {
+    public void clickBurgerMenu() {
         burgerMenu.click();
     }
 
-    public Boolean check_visibilityOfLogoutSideBar() {
+    public Boolean checkVisibilityOfLogoutSideBar() {
         return waitForVisible(logoutSidebarLink);
     }
 
-    public void set_SortingOption(SortType option) {
+    public void setSortingOption(SortType option) {
         Select dropdown = new Select(productSortContainer);
         dropdown.selectByValue(option.text);
     }
 
-    public List<WebElement> get_addToCartButtonsForSamePricedItems(String price) {
+    public List<WebElement> getAddToCartButtonsForSamePricedItems(String price) {
         List<WebElement> itemsWithSamePrice = new ArrayList<>();
         for (WebElement item: inventoryItemPriceList) {
             if (item.getText().equals(price)) {
-                WebElement parentElement = get_ParentElement(item);
-                WebElement addToCartButton = get_childElement(parentElement, cartButton);
+                WebElement parentElement = getParentElement(item);
+                WebElement addToCartButton = getChildElement(parentElement, cartButton);
                 itemsWithSamePrice.add(addToCartButton);
             }
         }
         return itemsWithSamePrice;
     }
 
-    public void click_addToCartButtons(List<WebElement> elementList) {
+    public void clickAddToCartButtons(List<WebElement> elementList) {
         for (WebElement element: elementList) {
             waitForClickableAndClick(element);
         }
     }
 
-    public void click_cartLink() {
+    public void clickCartLink() {
         waitForClickableAndClick(cartLink);
     }
 
-    public List<Integer> get_ItemsPriceList() {
+    public List<Integer> getItemsPriceList() {
         List<Integer> priceList = new ArrayList<>();
         List<WebElement> itemPriceList = inventoryItemPriceList;
         for (WebElement inventoryItemPrice: itemPriceList){
@@ -97,7 +97,7 @@ public class InventoryPage extends BasePage{
         return priceList;
     }
 
-    public Boolean check_PriceListSorted(List<Integer> priceList, SortType option) {
+    public Boolean checkPriceListSorted(List<Integer> priceList, SortType option) {
         switch(option) {
             case HIGH_TO_LOW:
                 return Ordering.natural().reverse().isOrdered(priceList);
