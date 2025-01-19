@@ -9,7 +9,7 @@ Feature: Login
   @smoke @regress @critical
   @allure.label.jira:X-1
   Scenario Outline: Successful user login scenario
-    When "<username>" and "<password>" is entered
+    When I enter username as "<username>" and password as "<password>"
     And I click on login button
     Then I should see logout link in burger menu
     Examples:
@@ -23,6 +23,6 @@ Feature: Login
   @smoke @regress
   @allure.label.jira:X-2
   Scenario: Unsuccessful user login scenario
-    When "locked_out_user" and "secret_sauce" is entered
+    When I enter username as "locked_out_user" and password as "secret_sauce"
     And I click on login button
     Then I should see error "Epic sadface: Sorry, this user has been locked out."

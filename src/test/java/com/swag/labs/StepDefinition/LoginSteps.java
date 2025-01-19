@@ -27,8 +27,8 @@ public class LoginSteps {
         driverManager.getDriver().get("https://www.saucedemo.com/");
     }
 
-    @When("{string} and {string} is entered")
-    public void username_and_password_is_entered(String username, String password) {
+    @When("I enter username as {string} and password as {string}")
+    public void i_enter_username_and_password(String username, String password) {
         loginPage = pageObjectManager.getLoginPage();
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
