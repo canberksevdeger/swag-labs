@@ -24,7 +24,7 @@ public class LoginSteps {
 
     @Given("The user is on the login page")
     public void the_user_is_on_the_login_page() {
-        driverManager.getDriver().get("https://www.saucedemo.com/");
+        driverManager.getDriver().get(System.getProperty("site.url"));
     }
 
     @When("I enter username as {string} and password as {string}")

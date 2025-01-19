@@ -24,9 +24,10 @@ public class InventorySteps {
 
     @Given("The user is on the inventory page")
     public void the_user_is_on_the_inventory_page() {
-        driverManager.getDriver().get("https://www.saucedemo.com");
+        String url = System.getProperty("site.url");
+        driverManager.getDriver().get(url);
         driverManager.getDriver().manage().addCookie(new Cookie("session-username", "standard_user"));
-        driverManager.getDriver().navigate().to("https://www.saucedemo.com/inventory.html");
+        driverManager.getDriver().navigate().to(url + "inventory.html");
     }
 
     @ParameterType("LOW_TO_HIGH|HIGH_TO_LOW|A_TO_Z|Z_TO_A")

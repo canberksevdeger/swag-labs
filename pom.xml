@@ -18,6 +18,18 @@
         <java-version>21</java-version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <site.url>https://www.saucedemo.com/</site.url>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -149,6 +161,9 @@
                     <includes>
                         <include>**/RunCucumberTest.java</include>
                     </includes>
+                    <systemPropertyVariables>
+                        <site.url>${site.url}</site.url>
+                    </systemPropertyVariables>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
